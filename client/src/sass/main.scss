@@ -1,0 +1,20 @@
+@import "~@sweetalert2/theme-bulma/bulma.scss";
+@import "layout/theme";
+@import "basic/variables";
+
+@import "node_modules/bootstrap/scss/bootstrap";
+
+@import "basic/base";
+@import "basic/links";
+@import "basic/swal";
+
+@import "components/navbar";
+@import "components/forms";
+@import "components/posts";
+@import "components/buttons";
+
+@import "pages/home";
+@import "pages/register";
+@import "pages/profile";
+
+@import "layout/header";

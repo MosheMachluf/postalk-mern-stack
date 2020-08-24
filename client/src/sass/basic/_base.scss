@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;1,700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body,
+#root {
+  height: 100%;
+  font-family: "Nunito", sans-serif !important;
+  font-size: 14px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+}
+
+.tac {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.jcsb {
+  justify-content: space-between;
+}
+
+.aic {
+  align-items: center;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.grow-1 {
+  flex-grow: 1;
+}
+
+.card {
+  border: 0;
+  background: #fff;
+  border-radius: $border-radius;
+  box-shadow: $shadow-sm;
+  margin-bottom: 3rem;
+}
+
+.inner {
+  padding: 0 $xl;
+}
+
+.white-space-pre {
+  white-space: pre-line;
+}
+
+.page-header {
+  width: 100%;
+}
+
+.dropdown-menu {
+  padding: 0;
+  margin-top: 2px;
+  background-color: #fff;
+  border: 1px solid #e1e4e8;
+  border-radius: $border-radius;
+  box-shadow: 0 8px 24px rgba(149, 157, 165, 0.3);
+
+  li {
+    padding: $s;
+  }
+
+  li:hover {
+    background: $light;
+  }
+}
+
+.hover-img {
+  position: relative;
+}
+
+.hover-img::before {
+  position: relative;
+  content: "";
+  display: block;
+  width: 250px;
+  height: 250px;
+  box-shadow: inset 0 0 5rem 10px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 5px;
+  opacity: 0;
+  z-index: 10;
+  border-radius: 50%;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.hover-img:hover::before {
+  opacity: 1;
+}
+
+.list-group {
+  cursor: pointer;
+
+  .list-group-item.active {
+    background: $primary-dark;
+    border-color: #ccc;
+  }
+}
+
+.border-3 {
+  border-width: 3px !important;
+}
+
+.dropdown-menu li:hover {
+  border-radius: $border-radius;
+}

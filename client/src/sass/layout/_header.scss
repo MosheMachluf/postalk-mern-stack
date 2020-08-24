@@ -1,0 +1,29 @@
+.top-toolbar {
+  background: $primary-dark;
+
+  color: #fff;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+
+  .inner-toolbar {
+    display: flex;
+  }
+
+  .logo {
+    flex: 1;
+    text-align: center;
+  }
+
+  .avatar {
+    padding-left: 5px;
+  }
+}
+
+@media (max-width: 576px) {
+  .inner-toolbar {
+    .logo {
+      text-align: right;
+    }
+  }
+}

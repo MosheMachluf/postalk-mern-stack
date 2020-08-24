@@ -1,0 +1,22 @@
+.swal2-header {
+  padding: 0;
+
+  img {
+    margin: 0;
+    border-radius: $border-radius;
+    width: auto;
+    max-height: 90vh;
+  }
+}
+.swal2-close {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.8);
+  }
+}
+
+.swal2-styled.swal2-confirm {
+  background: $primary;
+}

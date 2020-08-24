@@ -1,0 +1,33 @@
+$light-theme: (
+  bg: #ffffff,
+  bg-light: #f0f2f5,
+  text: #000000,
+  borders: #eeeeee,
+);
+
+$dark-theme: (
+  bg: #000000,
+  bg-light: #2a2d2f,
+  text: #ffffff,
+  border: #111111,
+);
+
+:root {
+  @each $name, $color in $light-theme {
+    --color-#{$name}: #{$color};
+  }
+  --theme: "light";
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    @each $name, $color in $dark-theme {
+      --color-#{$name}: #{$color};
+    }
+    --theme: "dark";
+  }
+}
+
+@function getColor($color-name) {
+  @return var(--color-#{$color-name});
+}

@@ -31,6 +31,9 @@ const Avatar = ({
             <img
               src={uploadsUrl + user.avatar}
               className={classes}
+              onError={({ target }) =>
+                (target.src = "images/default-user-avatar.webp")
+              }
               style={style}
               alt={`${fullName(user)} avatar`}
             />

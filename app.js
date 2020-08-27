@@ -8,7 +8,7 @@ const postsRoute = require("./routes/postsRoute");
 const commentsRoute = require("./routes/commentsRoute");
 
 /** MIDDLEWARS **/
-if (process.env.NODE_ENV === "development") {
+if (process.env.NODE_ENV !== "production") {
   const cors = require("cors");
   app.use(cors());
 }

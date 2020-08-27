@@ -19,7 +19,7 @@ class CommentsController {
     const { _id: userId } = req.user;
 
     let post = await Post.findOne({ _id: postId });
-    if (!post) return res.status(204).send("Post not exist");
+    if (!post) return res.status(404).send("Post not exist");
 
     let comment = new Comment({
       content: req.body.content,
@@ -48,7 +48,7 @@ class CommentsController {
         { _id: commentId, postId, userId },
         { content: req.body.content }
       );
-      if (!comment) return res.status(204).send("Comment not exist");
+      if (!comment) return res.status(404).send("Comment not exist");
     } catch (err) {
       res.status(400).send("An unexpected error occurred.");
     }
@@ -68,7 +68,7 @@ class CommentsController {
       _id: req.params.commentId,
       userId,
     });
-    if (!comment) return res.status(204).send("Comment not exist");
+    if (!comment) return res.status(404).send("Comment not exist");
 
     res.send(`comment ${req.params.commentId} deleted`);
   }

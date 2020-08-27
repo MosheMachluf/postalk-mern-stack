@@ -81,7 +81,7 @@ class UsersController {
       { _id: req.user._id },
       { online: false }
     );
-    if (!user) return res.status(204).send("User not found.");
+    if (!user) return res.status(404).send("User not found.");
 
     res.send({ message: `User ${user._id} logout` });
   }
@@ -100,11 +100,11 @@ class UsersController {
     const { _id } = req.user;
 
     const user = await User.findOne({ _id });
-    if (!user) return res.status(204).send("user not exist");
+    if (!user) return res.status(404).send("user not exist");
     const { savedPosts } = user;
 
     let getPosts = await getPostsArray(savedPosts);
-    if (!getPosts) return res.status(400).send("There are no saved posts");
+    if (!getPosts) return res.status(404).send("There are no saved posts");
 
     res.send(getPosts);
   }
@@ -131,7 +131,7 @@ class UsersController {
     const { _id } = req.user;
 
     let user = await User.findOne({ _id }, { email: 1, password: 1 });
-    if (!user) return res.status(204).send("User does not exist.");
+    if (!user) return res.status(404).send("User does not exist.");
 
     // if user wants change password && check password
     let changePassword = false;
@@ -181,7 +181,7 @@ class UsersController {
     else avatar = mapUrlImage(file);
 
     let user = await User.findOneAndUpdate({ _id }, { avatar });
-    if (!user) return res.status(204).send("User not exist.");
+    if (!user) return res.status(404).send("User not exist.");
 
     user = await User.findById(_id).select("-password");
     res.send(user);

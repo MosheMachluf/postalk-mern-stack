@@ -33,10 +33,10 @@ class Register extends Form {
       .email()
       .label("Email"),
     password: Joi.string().min(6).max(255).required().label("Password"),
-    confirmPassword: Joi.valid(Joi.ref("password"))
-      .error(() => ({
-        message: " ",
-      }))
+    confirmPassword: Joi.string()
+      .min(6)
+      .max(255)
+      .required()
       .label("Confirm Password"),
   };
 

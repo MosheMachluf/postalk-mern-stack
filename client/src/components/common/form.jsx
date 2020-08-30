@@ -20,10 +20,18 @@ class Form extends Component {
   }
 
   validateProperty({ name, value }) {
-    const obj = { [name]: value };
-    const schema = { [name]: this.schema[name] };
-    const { error } = Joi.validate(obj, schema);
-    return error ? error.details[0].message.replace(/"/g, "") : null;
+    const { password, confirmPassword } = this.state.data;
+    const p = name === "password" ? value : password;
+    const cp = name === "confirmPassword" ? value : confirmPassword;
+
+    if (name === "confirmPassword") {
+      return p === cp ? null : "Passwords don't match";
+    } else {
+      const obj = { [name]: value };
+      const schema = { [name]: this.schema[name] };
+      const { error } = Joi.validate(obj, schema);
+      return error ? error.details[0].message.replace(/"/g, "") : null;
+    }
   }
 
   handleChange = ({ currentTarget: input }) => {

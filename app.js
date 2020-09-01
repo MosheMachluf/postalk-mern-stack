@@ -8,11 +8,10 @@ const postsRoute = require("./routes/postsRoute");
 const commentsRoute = require("./routes/commentsRoute");
 
 /** MIDDLEWARS **/
-if (process.env.NODE_ENV !== "production") {
-  const cors = require("cors");
-}
 
+const cors = require("cors");
 app.use(cors());
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use("/uploads", express.static("uploads"));

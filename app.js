@@ -26,15 +26,15 @@ if (process.env.NODE_ENV === "production") {
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
+} else {
+  app.get("/", (req, res) => {
+    res.send("Welcome to PostTalk Server");
+  });
+
+  app.use((req, res, next) => {
+    res.status(404).send("404 Page Not Found!");
+  });
 }
-
-app.get("/", (req, res) => {
-  res.send("Welcome to PostTalk Server");
-});
-
-app.use((req, res, next) => {
-  res.status(404).send("404 Page Not Found!");
-});
 
 /** SERVER **/
 const PORT = process.env.PORT || 4000;

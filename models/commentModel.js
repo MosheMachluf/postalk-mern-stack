@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Joi = require("Joi");
+const Joi = require("joi");
 
 const commentSchema = new mongoose.Schema({
   content: { type: String, minlength: 1, maxlength: 2500, required: true },

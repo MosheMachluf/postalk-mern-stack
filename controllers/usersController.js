@@ -3,7 +3,7 @@ const { Post } = require("../models/postModel");
 const { Comment } = require("../models/commentModel");
 const _ = require("lodash");
 const bcrypt = require("bcrypt");
-const Joi = require("Joi");
+const Joi = require("joi");
 const { mapUrlImage } = require("../middlewares/upload");
 
 const validateUserLogin = (data) => {

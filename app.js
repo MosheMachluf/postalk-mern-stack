@@ -11,7 +11,7 @@ const commentsRoute = require("./routes/commentsRoute");
 if (process.env.NODE_ENV !== "production") {
   const cors = require("cors");
   app.use(cors());
-  app.use("/uploads", express.static("uploads"));
+  // app.use("/uploads", express.static("uploads"));
 }
 
 app.use(express.json());

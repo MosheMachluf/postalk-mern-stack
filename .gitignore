@@ -1,7 +1,2 @@
-/node_modules
+node_modules
 nodemon.json
-
-npm-debug.log
-.DS_Store
-
-client/node_modules

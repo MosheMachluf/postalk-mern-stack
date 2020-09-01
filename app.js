@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const path = require("path");
-const dbConnection = require("./config/db");
+require("./config/db");
 
 const usersRoute = require("./routes/usersRoute");
 const postsRoute = require("./routes/postsRoute");
@@ -10,12 +10,12 @@ const commentsRoute = require("./routes/commentsRoute");
 /** MIDDLEWARS **/
 if (process.env.NODE_ENV !== "production") {
   const cors = require("cors");
-  app.use(cors());
-  // app.use("/uploads", express.static("uploads"));
 }
 
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use("/uploads", express.static("uploads"));
 
 // Routes
 app.use("/api/account", usersRoute);
@@ -29,13 +29,13 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-// app.get("/", (req, res) => {
-//   res.send("Welcome to PostTalk Server");
-// });
+app.get("/", (req, res) => {
+  res.send("Welcome to PostTalk Server");
+});
 
-// app.use((req, res, next) => {
-//   res.status(404).send("404 Page Not Found!");
-// });
+app.use((req, res, next) => {
+  res.status(404).send("404 Page Not Found!");
+});
 
 /** SERVER **/
 const PORT = process.env.PORT || 4000;

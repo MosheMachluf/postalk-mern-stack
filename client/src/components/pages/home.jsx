@@ -171,7 +171,6 @@ class Home extends Component {
     return (
       <>
         <PageHeader title="Home" />
-
         <div className="inner">
           <MiniProfile user={user} />
 

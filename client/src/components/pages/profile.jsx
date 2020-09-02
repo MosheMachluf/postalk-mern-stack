@@ -8,7 +8,7 @@ import authService from "../../services/authService";
 import postsService from "../../services/postsService";
 import { fullName, swal, dateFormat } from "../../services/helpers";
 
-import Preloader from "../common/preloader";
+import Loader from "../common/loader";
 import Button from "../common/button";
 import PageHeader from "../common/page-header";
 
@@ -119,7 +119,7 @@ class Profile extends Component {
 
   renderUserDetails(user, me) {
     return (
-      (!user && <Preloader />) ||
+      (!user && <Loader />) ||
       (Object.keys(user).length ? (
         <div className="card capitalize py-3">
           <div className="row">

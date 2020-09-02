@@ -1,5 +1,5 @@
 import React from "react";
-import Preloader from "./preloader";
+import Loader from "./loader";
 import Avatar from "./avatar";
 import { fullName, dateFormat } from "../../services/helpers";
 import Button from "./button";
@@ -7,7 +7,7 @@ import Button from "./button";
 const MiniProfile = ({ user }) => {
   return (
     <>
-      {(!user && <Preloader />) ||
+      {(!user && <Loader />) ||
         (Object.keys(user).length ? (
           <div className="mini-profile card capitalize">
             <div style={{ width: "100%", height: "250px" }}></div>
@@ -29,7 +29,7 @@ const MiniProfile = ({ user }) => {
             <p className="lead">
               We so glad to see you. We are "PostTalk" a social application that
               connects people through conversations in posts. If you want to
-              talk to people sign up now and start posting posts or posting
+              talk with people sign up now and start posting posts or posting
               comments on existing posts
             </p>
             <hr className="my-4" />

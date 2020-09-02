@@ -186,10 +186,10 @@ class Home extends Component {
                 <span>&times;</span>
               </button>
 
-              <h4 className="alert-heading">Hey {user.firstName}</h4>
+              <h4 className="alert-heading capitalize">Hey {user.firstName}</h4>
               <hr />
               <Link to="/account/settings">
-                <p>
+                <p className="text-dark">
                   You are missing some profile details, Click here to complete
                   the profile details
                 </p>

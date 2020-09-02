@@ -5,7 +5,7 @@ import ShowMoreText from "react-show-more-text";
 
 import Avatar from "./avatar";
 import Comment from "./comment";
-import Preloader from "./preloader";
+import Loader from "./loader";
 import CreateComment from "./create-comment";
 import Button from "./button";
 
@@ -170,7 +170,7 @@ class Post extends Component {
     return (
       <>
         <div className="collapse" id={`collapseComments${postId}`}>
-          {(!comments && <Preloader />) ||
+          {(!comments && <Loader />) ||
             (comments.length ? (
               comments.map((comment) => (
                 <Comment

@@ -38,7 +38,7 @@ class Account extends Component {
             <div className="overlay">
               <div className="overlay-panel overlay-left">
                 <h1>Welcome Back!</h1>
-                <p>Do you already have an account with us?</p>
+                <p>Already have an account with us?</p>
                 <button className="ghost" onClick={this.switchTo}>
                   Login
                 </button>

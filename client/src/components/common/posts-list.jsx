@@ -1,6 +1,6 @@
 import React from "react";
 import Post from "./post";
-import Preloader from "./preloader";
+import Loader from "./loader";
 
 const PostsList = ({
   posts,
@@ -13,7 +13,7 @@ const PostsList = ({
 }) => {
   return (
     <>
-      {!posts && <Preloader />}
+      {!posts && <Loader />}
       {posts && posts.length ? (
         posts.map((post) => (
           <Post

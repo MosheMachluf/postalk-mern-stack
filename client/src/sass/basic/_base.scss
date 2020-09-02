@@ -40,6 +40,10 @@ body,
   background: #aaa;
 }
 
+.container-lg {
+  max-width: 1000px;
+}
+
 .bold {
   font-weight: bold;
 }
@@ -80,7 +84,7 @@ body,
   background: #fff;
   border-radius: $border-radius;
   box-shadow: $shadow-sm;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .inner {

@@ -211,10 +211,10 @@ class Profile extends Component {
               </table>
 
               {me?._id === user?._id && (
-                <div>
+                <div className="pl-2">
                   <Button to="/account/settings" classlink="button">
                     <i className="fas fa-pencil-alt" />
-                    Edit
+                    Edit Profile
                   </Button>
                 </div>
               )}

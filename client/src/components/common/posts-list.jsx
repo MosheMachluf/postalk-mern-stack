@@ -14,7 +14,8 @@ const PostsList = ({
   return (
     <>
       {!posts && <Loader />}
-      {posts && posts.length ? (
+      {posts &&
+        posts.length > 0 &&
         posts.map((post) => (
           <Post
             post={post}
@@ -24,8 +25,8 @@ const PostsList = ({
             editPost={editPost}
             deletePost={deletePost}
           />
-        ))
-      ) : (
+        ))}
+      {posts && !posts.length && (
         <div className="card p-4">
           <h4>{message || "No posts yet... "}</h4>
           {text ? <p>{text}</p> : null}

@@ -20,18 +20,18 @@ class Account extends Component {
     const { rightPanelActive } = this.state;
 
     return (
-      <div className="center">
+      <div className="center bg-mobile">
         <div
           className={`centered-container ${
             rightPanelActive ? "right-panel-active" : ""
           }`}
         >
           <div className="form-container register-form">
-            <Register />
+            <Register switchTo={this.switchTo} />
           </div>
 
           <div className="form-container login-form">
-            <Login />
+            <Login switchTo={this.switchTo} />
           </div>
 
           <div className="overlay-container">

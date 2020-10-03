@@ -47,8 +47,13 @@ class Login extends Form {
         {errors.length && <div className="alert alert-danger">{errors}</div>}
         {this.renderInput("email", "Email", "email")}
         {this.renderInput("password", "Password", "password")}
-
         {this.renderButton("Login")}
+        <div class="only-mobile mt-4 text-center">
+          Don't Have An Account ?
+          <button onClick={this.props.switchTo} class="button ml-3">
+            Register
+          </button>
+        </div>
       </form>
     );
   }

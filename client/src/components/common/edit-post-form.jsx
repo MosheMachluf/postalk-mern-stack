@@ -94,7 +94,7 @@ class EditPostForm extends Component {
               id="edit-post-images"
               name="images"
               onChange={(e) => this.handleChange(e.currentTarget)}
-              accept="image/png, image/jpeg, image/jpg, images/gif"
+              accept="image/png, image/jpeg, image/jpg, image/gif"
               multiple
             />
             <label

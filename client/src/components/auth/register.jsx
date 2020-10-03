@@ -70,6 +70,12 @@ class Register extends Form {
         className="form"
       >
         <h1>Create Account</h1>
+        <div class="only-mobile my-2 text-center">
+          Have An Account ?
+          <button onClick={this.props.switchTo} class="button ml-3">
+            Login
+          </button>
+        </div>
         {errors.length && <div className="alert alert-danger">{errors}</div>}
 
         {this.renderInput("firstName", "First Name")}

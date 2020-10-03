@@ -121,7 +121,8 @@ class Home extends Component {
   };
 
   resetSearch = () => {
-    this.setState({ posts: this.allPosts });
+    const posts = (this.allPosts?.length && this.allPosts) || [];
+    this.setState({ posts, search: { value: "" } });
   };
 
   doSubmitSearch = async (e) => {

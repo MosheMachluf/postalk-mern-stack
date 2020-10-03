@@ -34,10 +34,7 @@ export const swal = {
 
   openImage(image, alt) {
     return {
-      imageUrl: `${
-        uploadsUrl + image ||
-        "https://www.publicdomainpictures.net/pictures/280000/nahled/not-found-image-15383864787lu.jpg"
-      }`,
+      imageUrl: `${uploadsUrl + image}`,
       imageAlt: alt,
       width: "auto",
       height: "auto",

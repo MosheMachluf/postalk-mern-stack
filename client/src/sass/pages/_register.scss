@@ -64,6 +64,7 @@
 }
 
 @keyframes show {
+
   0%,
   49.99% {
     opacity: 0;
@@ -94,7 +95,6 @@
 
 .overlay {
   background: $primary-light;
-  background: -webkit-linear-gradient(to right, $primary, $primary-light);
   background: linear-gradient(to right, $primary, $primary-light);
   background-repeat: no-repeat;
   background-size: cover;
@@ -142,4 +142,42 @@
 
 .centered-container.right-panel-active .overlay-right {
   transform: translateX(20%);
+}
+
+@media (min-width: 0px) and (max-width: 768px) {
+  .only-mobile {
+    display: block;
+  }
+
+  .bg-mobile {
+    background: $primary-light;
+    background: linear-gradient(to right, $primary, $primary-light);
+  }
+
+  .centered-container {
+    // box-shadow: none;
+
+    &.right-panel-active {
+      .register-form {
+        transform: translateX(0);
+        display: block;
+      }
+
+      .login-form {
+        display: none;
+      }
+    }
+  }
+
+  .register-form,
+  .login-form {
+    width: 100%;
+  }
+
+  .register-form,
+  .overlay-container,
+  .overlay-panel,
+  .overlay {
+    display: none;
+  }
 }

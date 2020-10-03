@@ -155,3 +155,7 @@ body,
 .dropdown-menu li:hover {
   border-radius: $border-radius;
 }
+
+.only-mobile {
+  display: none;
+}

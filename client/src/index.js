@@ -14,7 +14,17 @@ import "react-toastify/dist/ReactToastify.css";
 ReactDOM.render(
   <BrowserRouter>
     <React.StrictMode>
-      <ToastContainer />
+      <ToastContainer
+        position="top-right"
+        autoClose={4000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover
+      />
       <App />
     </React.StrictMode>
   </BrowserRouter>,

@@ -150,7 +150,6 @@ class PostsController {
       { savedPosts: { $in: [postId] } },
       { savedPosts: 1 }
     );
-    console.log(usersSavedPost);
 
     usersSavedPost.forEach(async ({ _id, savedPosts }) => {
       if (savedPosts.includes(postId)) {

@@ -11,7 +11,7 @@ const Header = ({ user }) => {
 
           <div className="logo">
             <Link to="/">
-              <img src="/images/logo.png" height="35px" alt="PosTalk-logo" />
+              <img src="/images/logo.png" height="25px" alt="PosTalk-logo" />
             </Link>
           </div>
         </div>

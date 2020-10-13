@@ -4,7 +4,7 @@
   color: #fff;
   width: 80px;
   height: 100%;
-  min-height: 92vh;
+  min-height: 94vh;
   position: relative;
 
   &::after {
@@ -111,6 +111,7 @@
     i {
       font-size: 25px;
     }
+
     &::after,
     &::before {
       display: none;

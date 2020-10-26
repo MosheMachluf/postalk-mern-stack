@@ -106,8 +106,12 @@ class Home extends Component {
 
   /* Search Posts */
   showPostsImages = async (withImages) => {
-    const { data: posts } = await postsService.search("", withImages);
-    this.setState({ posts, titleShow: `Show Posts With ${withImages ? "images" : "text"}` });
+    try {
+      const { data: posts } = await postsService.search("", withImages);
+      this.setState({ posts, titleShow: `Show Posts With ${withImages ? "images" : "text"}` });
+    } catch (err) {
+      this.setState({ posts: [], titleShow: `No found posts Posts With ${withImages ? "images" : "text"}` });
+    }
   };
 
   handleChangeSearch = ({ currentTarget: input }) => {

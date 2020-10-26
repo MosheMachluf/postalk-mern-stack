@@ -6,7 +6,7 @@ const Navbar = ({ user }) => {
     <nav className="main-navbar">
       <ul>
         <li data-tooltip="Home">
-          <NavLink to="/">
+          <NavLink exact to="/">
             <i className="fas fa-home" />
           </NavLink>
         </li>

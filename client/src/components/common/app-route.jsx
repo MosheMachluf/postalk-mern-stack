@@ -14,7 +14,7 @@ const AppRoute = ({ component: Component, layout: Layout, ...rest }) => (
       if (Layout)
         return (
           <Layout {...rest}>
-            <Component {...rest} {...props} />
+            <Component {...props} />
           </Layout>
         );
       return <Component {...rest} {...props} />;

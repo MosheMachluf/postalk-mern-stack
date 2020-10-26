@@ -24,6 +24,7 @@ class Settings extends Component {
   };
 
   render() {
+
     return (
       <>
         <PageHeader title="Account Settings" />

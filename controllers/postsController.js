@@ -42,22 +42,22 @@ class PostsController {
   static async search(req, res) {
     const { q, images } = req.query;
 
-    let posts = await Post.find({ content: { $regex: q } }).populate(
+    let posts = await Post.find({ content: { $regex: q, $options: 'i' } }).populate(
       "userId",
       "firstName lastName online avatar"
     );
 
     if (images === "true") {
       posts = posts.filter(
-        ({ images, content }) => images.length > 0 && content.includes(q)
+        ({ images, content }) => images.length && content.includes(q)
       );
-    } else {
+    } else if(images === "false") {
       posts = posts.filter(
         ({ images, content }) => !images.length && content.includes(q)
       );
     }
 
-    if (!posts) return res.status(400).send("No results were found");
+    if (!posts.length) return res.status(400).send("Sorry, no results were found");
 
     res.send(posts);
   }

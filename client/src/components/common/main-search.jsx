@@ -3,11 +3,11 @@ import React from "react";
 const MainSearch = ({
   handleChange,
   value,
-  showPostsWithImages,
-  showPostsText,
+  showPostsImages,
   doSubmit,
   resetSearch,
 }) => {
+
   return (
     <div className="block-tabs">
       <form onSubmit={doSubmit} autoComplete="off" noValidate="noValidate">
@@ -46,11 +46,11 @@ const MainSearch = ({
             onChange={handleChange}
           />
 
-          <button type="button" className="btn" onClick={showPostsText}>
+          <button type="button" className="btn" onClick={() => showPostsImages(false)}>
             <i className="far fa-file-alt" />
           </button>
 
-          <button type="button" className="btn" onClick={showPostsWithImages}>
+          <button type="button" className="btn" onClick={() => showPostsImages(true)}>
             <i className="fas fa-images" />
           </button>
 

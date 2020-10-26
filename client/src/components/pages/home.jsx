@@ -22,6 +22,7 @@ class Home extends Component {
     posts: null,
     savedPosts: [],
     search: { value: "", error: "" },
+    titleShow: null
   };
 
   allPosts = null;
@@ -44,7 +45,7 @@ class Home extends Component {
       this.setState({ posts: [] });
     }
   }
-
+  
   newPost = (post) => {
     const posts = [...this.state.posts];
     posts.unshift(post);
@@ -66,9 +67,9 @@ class Home extends Component {
       showCloseButton: true,
     });
 
-    if (result.value) {
+    if (result.value)
       Swal.fire(swal.update("Your post has been updated"));
-    }
+    
   };
 
   deletePost = async (postId) => {
@@ -83,7 +84,7 @@ class Home extends Component {
   };
 
   savePost = async (post) => {
-    let { savedPosts } = this.state;
+    const { savedPosts } = this.state;
     let add;
 
     if (savedPosts.includes(post._id)) {
@@ -104,43 +105,31 @@ class Home extends Component {
   };
 
   /* Search Posts */
-  showPostsText = async () => {
-    let { data: posts } = await postsService.search("", false);
-    this.setState({ posts });
-  };
-
-  showPostsWithImages = async () => {
-    let { data: posts } = await postsService.search("", true);
-    this.setState({ posts });
+  showPostsImages = async (withImages) => {
+    const { data: posts } = await postsService.search("", withImages);
+    this.setState({ posts, titleShow: `Show Posts With ${withImages ? "images" : "text"}` });
   };
 
   handleChangeSearch = ({ currentTarget: input }) => {
-    let search = { ...this.state.search };
-    search.value = input.value;
-    this.setState({ search });
+    this.setState({ search: { ...this.state.search, value: input.value }});
   };
 
   resetSearch = () => {
     const posts = (this.allPosts?.length && this.allPosts) || [];
-    this.setState({ posts, search: { value: "" } });
+    this.setState({ posts, search: { value: "" }, titleShow: null });
   };
 
   doSubmitSearch = async (e) => {
     e.preventDefault();
     const { value } = this.state.search;
 
-    if (!value.trim()) return this.setState({ posts: this.allPosts });
+    if (!value.trim()) return this.setState({ posts: this.allPosts, titleShow: null });
 
     try {
-      let { data: posts } = await postsService.search(value, "");
-      if (!posts.length)
-        return this.setState({
-          posts: [],
-          search: { error: "Sorry, no results were found" },
-        });
-      this.setState({ posts });
+      const { data: posts } = await postsService.search(value, "");
+      this.setState({ posts, titleShow: `Show ${posts.length} Results for: ${value}` });
     } catch (err) {
-      this.setState({ search: { error: err.response.data } });
+      this.setState({posts: [], search: { value: "", error: err.response.data }, titleShow: `Show 0 Results For: ${value}` });
     }
   };
 
@@ -167,7 +156,7 @@ class Home extends Component {
   }
 
   render() {
-    const { user, posts, savedPosts, search } = this.state;
+    const { user, posts, savedPosts, search, titleShow } = this.state;
 
     return (
       <>
@@ -230,8 +219,7 @@ class Home extends Component {
               <MainSearch
                 value={search.value}
                 handleChange={this.handleChangeSearch}
-                showPostsWithImages={this.showPostsWithImages}
-                showPostsText={this.showPostsText}
+                showPostsImages={this.showPostsImages}
                 resetSearch={this.resetSearch}
                 doSubmit={this.doSubmitSearch}
               />
@@ -240,6 +228,14 @@ class Home extends Component {
               <CreatePost newPost={this.newPost} />
             </div>
           </div>
+
+          {titleShow &&
+          <div className="row">
+            <div className="col-12 capitalize center my-2">
+              <h4>{titleShow}</h4>
+              <button className="btn text-primary" onClick={this.resetSearch}>Reset</button>
+            </div>
+          </div>}
 
           {this.renderPosts(posts, savedPosts)}
         </div>

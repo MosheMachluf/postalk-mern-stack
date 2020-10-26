@@ -32,10 +32,7 @@ class App extends Component {
 
     return (
       <Switch>
-        <Route exact path="/account" component={Account} user={user} />
-
         <AppRoute exact path="/" layout={Layout} component={Home} user={user} />
-
         <AppRoute
           exact
           path="/profile/:userId"
@@ -44,7 +41,7 @@ class App extends Component {
           user={user}
           protected={true}
         />
-
+        <Route exact path="/account" component={Account} user={user} />
         <AppRoute
           exact
           path="/account/settings"
@@ -54,7 +51,6 @@ class App extends Component {
           protected={true}
         />
         <Route exact path="/account/logout" component={Logout} user={user} />
-
         <AppRoute
           exact
           path="/page-not-found"
